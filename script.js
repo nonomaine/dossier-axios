@@ -25,7 +25,9 @@ const axiosInstancePost = axios.create({
     prenom: 'Steve'
   }))*/
     .then(function(donnees) {
-        console.log(donnees.data.results[0].name);
+      donnees.data.results.forEach(element => {
+        console.log(element.name);
+      });
     })
     .catch(function(erreur) {
       console.error(erreur);

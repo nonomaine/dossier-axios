@@ -38,7 +38,7 @@ const axiosInstancePost = axios.create({
        // img.src = element.image;
 
       let selects =document.createElement('option');
-      selects.name=element.name;
+      selects.value=element.id;
       selects.textContent=element.name;
       option.append(selects);
       //let inputs=document.createElement('select');

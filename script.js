@@ -12,7 +12,9 @@ const axiosInstancePost = axios.create({
   }))*/
     
   //import axios from "axios";
-    const url="https://rickandmortyapi.com/api/character";
+//et cont = document.querySelector('.class-container');
+    
+const url="https://rickandmortyapi.com/api/character";
 const axiosInstancePost = axios.create({
     headers: {
       //'Content-Type': 'application/x-www-form-urlencoded'
@@ -25,10 +27,34 @@ const axiosInstancePost = axios.create({
     prenom: 'Steve'
   }))*/
     .then(function(donnees) {
+  let cont = document.querySelector('.class-container');
+  let input = document.querySelector('.character');
+  let option = document.querySelector('#aa');
+
       donnees.data.results.forEach(element => {
-        console.log(element.name);
+        //console.log(element.image);
+        //let img= document.createElement('img');
+        //cont.append(img);
+       // img.src = element.image;
+
+      let selects =document.createElement('option');
+      selects.name=element.name;
+      selects.textContent=element.name;
+      option.append(selects);
+      //let inputs=document.createElement('select');
+      //let inputs = element.name;
+      //input.appendChild(inputs);
+      
+       
+       //input.type= 'text';
+       //console.log(input);
+       console.log(selects);
+
       });
     })
     .catch(function(erreur) {
       console.error(erreur);
     })
+
+    
+ 

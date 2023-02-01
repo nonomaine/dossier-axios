@@ -13,45 +13,31 @@ const axiosInstancePost = axios.create({
   }))*/
     .then(function(donnees) {
   let cont = document.querySelector('.class-container');
- 
+ let box= document.querySelector('.container');
   let option = document.querySelector('#aa');
 
       donnees.data.results.forEach(element => {
-        //console.log(element.image);
-        //let img= document.createElement('img');
-        //cont.append(img);
-       // img.src = element.image;
+        
 
-      let selects =document.createElement('option');
+      const selects =document.createElement('option');
       selects.value=element.id;
       selects.textContent=element.name;
       option.append(selects);
       
-      function afficher(){
-        let img = document.createElement('img');
-        cont.append(img);
-        img.src = element.image;
-         
-      };
-      
-      if(element.id === selects.value){
-        return afficher();
-      }
-      
-      afficher();
-      selects.addEventListener('click', afficher)
+    
+      option.addEventListener('click', (e) =>{
+        
+        if(e.target.value === selects.value){
+          img.src = element.image;
+        
+        }
+        
+      })
       
       });
+      let img = document.createElement('img');
+      box.append(img);
     })
     .catch(function(erreur) {
       console.error(erreur);
     })
-
-  
-
-    
- 
-
-
-  
-
